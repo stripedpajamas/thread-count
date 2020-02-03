@@ -1,5 +1,5 @@
 {
-  "name": "thread-count",
+  "name": "thread-count-tst",
   "version": "0.1.0",
   "description": "",
   "main": "lib/index.js",
@@ -8,7 +8,30 @@
   "dependencies": {
     "neon-cli": "^0.3.3"
   },
+  "binary": {
+    "module_name": "index",
+    "host": "https://github.com/stripedpajamas/thread-count/releases/download/",
+    "remote_path": "{version}",
+    "package_name": "{node_abi}-{platform}-{arch}.tar.gz",
+    "module_path": "./native",
+    "pkg_path": "."
+  },
   "scripts": {
-    "install": "neon build"
+    "test": "echo no tests; exit 0;",
+    "install": "node-pre-gyp install --fallback-to-build=false || neon build --release",
+    "package": "node-pre-gyp package",
+    "upload-binary": "node-pre-gyp package && node-pre-gyp-github publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stripedpajamas/thread-count.git"
+  },
+  "files": [
+    "native/index.node",
+    "lib"
+  ],
+  "devDependencies": {
+    "node-pre-gyp": "github:amilajack/node-pre-gyp",
+    "node-pre-gyp-github": "^1.4.3"
   }
 }
