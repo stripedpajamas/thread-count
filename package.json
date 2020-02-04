@@ -5,9 +5,6 @@
   "main": "lib/index.js",
   "author": "Peter Squicciarini <stripedpajamas273@gmail.com>",
   "license": "MIT",
-  "dependencies": {
-    "neon-cli": "^0.3.3"
-  },
   "binary": {
     "module_name": "index",
     "host": "https://github.com/stripedpajamas/thread-count/releases/download/",
@@ -30,7 +27,8 @@
     "native/index.node",
     "lib"
   ],
-  "devDependencies": {
+  "dependencies": {
+    "neon-cli": "^0.3.3",
     "node-pre-gyp": "github:amilajack/node-pre-gyp",
     "node-pre-gyp-github": "^1.4.3"
   }
